@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php wp_title(); ?></title>
+<title>Test</title>
 </head>
 <body>
