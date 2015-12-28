@@ -1,3 +1,4 @@
+<?php while ( have_posts() ) : the_post(); ?>
 <h3>Content Single</h3>
 <article>
 	<header>
@@ -11,3 +12,4 @@
 		</footer>
 	</div>
 </article>
+<?php endwhile; ?>
