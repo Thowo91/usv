@@ -9,16 +9,5 @@
 
 <body <?php body_class(); ?>>
 <nav>
-	<ul>
-		<li>A</li>
-		<li>B</li>
-		<li>C
-			<ul>
-				<li>C1</li>
-				<li>C2</li>
-				<li>C3</li>
-			</ul>
-		</li>
-		<li>D</li>
-	</ul>
+	<?php wp_nav_menu( array( 'theme_location' => 'header-nav' ) ); ?>
 </nav>
