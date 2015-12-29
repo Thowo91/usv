@@ -3,9 +3,9 @@
 add_action( 'after_setup_theme', 'usv' );
 
 function usv_scripts() {
-	wp_enqueue_style( 'usv-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700' );
+	wp_enqueue_style( 'usv-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700', array(), null );
 
-	wp_enqueue_style( 'usv-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'usv-style', get_stylesheet_uri(), array(), null );
 }
 
 add_action( 'wp_enqueue_scripts', 'usv_scripts' );
@@ -34,8 +34,8 @@ function usv() {
 
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 
-	add_theme_support('html5',
-		array('search-form', 'gallery', 'caption', 'widgets')
+	add_theme_support( 'html5',
+		array( 'search-form', 'gallery', 'caption', 'widgets' )
 	);
 }
 
