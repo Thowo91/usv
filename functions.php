@@ -21,21 +21,20 @@ function add_rss_link() {
 
 add_action( 'wp_head', 'add_rss_link' );
 
-function usv_wp_title( $title, $sep ) {
+function usv_wp_title( $title ) {
 	global $paged, $page;
 
 	if ( is_feed() ) {
 		return $title;
 	}
 
-	$title .= get_bloginfo( 'name' );
+	$filtered_title = $title . get_bloginfo( 'name' );
+	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) ) : '';
 
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Seite %s', 'usv' ), max( $paged, $page ) );
-	}
-
-	return $title;
+	return $filtered_title;
 }
+
+add_filter('wp_title', 'usv_wp_title');
 
 function usv_widgets_init() {
 	register_sidebar( array(

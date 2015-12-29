@@ -3,6 +3,7 @@
 	<article>
 		<header>
 			<h2><?php the_title(); ?></h2>
+			<span><?php echo get_the_date( 'l, j. F Y' ); ?></span>
 		</header>
 		<div>
 			<?php the_content(); ?>
