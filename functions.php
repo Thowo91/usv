@@ -13,7 +13,7 @@ add_action( 'wp_enqueue_scripts', 'usv_scripts' );
 function add_rss_link() {
 	$rss = '<link rel="alternate" type="application/rss+xml" title="';
 	$rss .= get_bloginfo( 'sitename' ) . ' Feed" href="';
-	$rss .= get_bloginfo( 'rss2_url' ) . '"';
+	$rss .= get_bloginfo( 'rss2_url' ) . '">';
 	echo $rss;
 }
 
