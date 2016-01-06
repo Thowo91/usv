@@ -8,7 +8,13 @@
         <div>
             <?php the_content(); ?>
             <footer>
-                <p>Kategorie, Tag, Permalink</p>
+                <p<?php if ( get_the_category_list() ) : ?>
+                    Kategorien: <?php echo get_the_category_list( ', ' ); ?> |
+                <?php endif; ?>
+                <?php if ( get_the_tag_list() ) : ?>
+                    <?php echo get_the_tag_list( 'Schlagwörter: ', ', ', ' |' ); ?>
+                <?php endif; ?>
+                <a href="<?php echo get_permalink(); ?>">Permalink</a></p>
             </footer>
         </div>
     </article>
