@@ -7,12 +7,14 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body id="navi-open" <?php body_class(); ?>>
 <div id="page">
 	<header id="branding">
 		<h1><?php bloginfo( 'name' ); ?></h1>
-		<nav>
+		<nav id="main-nav">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-nav' ) ); ?>
 		</nav>
+		<a class="nav-toggle nav-show" href="#navi-open">MENU</a>
+		<a class="nav-toggle nav-hide" href="#navi-schliessen">MENU</a>
 	</header>
 	<div id="wrap">
