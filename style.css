@@ -38,6 +38,8 @@ body {
   width: 100%;
   float: left;
   display: none;
+  position: relative;
+  z-index: 999;
 }
 
 #navi-open:target nav {
