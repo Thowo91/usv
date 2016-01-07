@@ -8,8 +8,85 @@ License:            GNU General Public License v2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+@import "_variables.scss";
+
 #page {
   max-width: 1102px;
   margin: 0 auto;
 }
 
+body {
+  background-color: $background;
+  font: {
+    family: 'Droid Sans';
+  }
+}
+
+#branding {
+  nav {
+    background-color: $navigation;
+  }
+}
+
+#content {
+  background-color: white;
+}
+
+#sidebar {
+  background-color: white;
+}
+
+#colophon {
+  background-color: $navigation;
+}
+
+#main-nav {
+  width:100%;
+  float:left;
+  display:none;
+  position: relative;
+  z-index: 999;
+}
+
+#navi-open:target nav {display:block;}
+
+#main-nav li {
+  float:left;
+  width:100%;
+}
+
+#main-nav li ul {
+  display: none;
+}
+
+#main-nav a {
+  display:block;
+  height:100%;
+  width:100%;
+  text-decoration:none;
+}
+
+#main-nav a:hover {
+  background:#e5ba6d;
+  color:#2f2619;
+}
+
+.nav-toggle {
+  display:block;
+  position:absolute;
+  right:0;
+  top:0;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.nav-toggle:hover {
+  background:#e5ba6d;
+  color:#2f2619;
+}
+
+.nav-hide {display:none;}
+
+#navi-open:target .nav-hide {display:block;}
+
+#navi-hide:target .nav-hide {display:none;}
