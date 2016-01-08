@@ -3,12 +3,21 @@
 Template Name: Archives
 */
 get_header(); ?>
-	<main id="content"><?php
-		the_archive_title( '<h1>', '</h1>' );
-		the_archive_description( '<div>', '</div>' ); ?>
+	<main id="content">
 		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', get_post_format() ); ?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<header>
+					<h1><?php the_title(); ?></h1>
+				</header>
+				<h2>Artikel im Monat:</h2>
+				<ul>
+					<?php wp_get_archives('type=monthly'); ?>
+				</ul>
+				<h2>Artikel des Jahres:</h2>
+				<ul>
+					<?php wp_get_archives('type=yearly'); ?>
+				</ul>
+			</article>
 
 		<?php endwhile; ?>
 		<?php
