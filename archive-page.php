@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Archives
+Template Name: Archiv Page Template
 */
 get_header(); ?>
 	<main id="content">
@@ -11,11 +11,11 @@ get_header(); ?>
 				</header>
 				<h2>Artikel im Monat:</h2>
 				<ul>
-					<?php wp_get_archives('type=monthly'); ?>
+					<?php wp_get_archives( 'type=monthly' ); ?>
 				</ul>
 				<h2>Artikel des Jahres:</h2>
 				<ul>
-					<?php wp_get_archives('type=yearly'); ?>
+					<?php wp_get_archives( 'type=yearly' ); ?>
 				</ul>
 			</article>
 
