@@ -5,10 +5,7 @@ if ( function_exists( usv_breadcrumb_shortcode ) ) {
 }
 ?>
 <main id="content">
-	<h2>ARTIKEL DER KATEGORIE: <?php single_cat_title( '', true ); ?></h2>
-	<p><?php if ( count( category_description() ) ) : ?>
-			<?php echo category_description(); ?>
-		<?php endif; ?></p>
+	h2><?php echo $wp_query->found_posts; ?> Suchergebnisse für <?php the_search_query(); ?></h2>
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<?php get_template_part( 'content', get_post_format() ); ?>
