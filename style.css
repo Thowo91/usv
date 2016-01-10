@@ -15,7 +15,30 @@ License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
 body {
   background-color: #ececec;
-  font-family: 'Droid Sans';
+  font-family: 'Droid Sans',sans-serif;
+}
+
+img,
+.wp-caption {
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  padding: 0 15px 0 0;
+}
+
+a {
+  outline: 0;
+  font-style: normal;
+  text-decoration: none;
+}
+a img {
+  border: none;
+}
+a:link, a:visited {
+  color: #cf5c3f;
+}
+a:hover, a:active, a:focus {
+  color: #777;
 }
 
 #branding nav {
@@ -24,14 +47,45 @@ body {
 
 #content {
   background-color: white;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+}
+
+article {
+  border-bottom: 1px solid #777;
+}
+article:last-child {
+  border-bottom: none;
 }
 
 #sidebar {
   background-color: white;
+  width: 100%;
+  float: right;
 }
 
 #colophon {
   background-color: #666;
+  width: 100%;
+  float: left;
+  color: white;
+}
+#colophon a:link, #colophon a:visited {
+  color: white;
+  padding: 5px 16px;
+  display: block;
+}
+#colophon a:hover, #colophon a:focus {
+  background: #cf5c3f;
+}
+#colophon ul {
+  padding-left: 20px;
+  display: block;
+}
+#colophon li {
+  float: left;
+  list-style: none;
 }
 
 #main-nav {
@@ -49,22 +103,25 @@ body {
 #main-nav li {
   float: left;
   width: 100%;
+  padding-bottom: 2px;
+  list-style: none;
 }
-
 #main-nav li ul {
   display: none;
 }
-
 #main-nav a {
   display: block;
   height: 100%;
   width: 100%;
   text-decoration: none;
+  padding: 1em;
 }
-
-#main-nav a:hover {
-  background: #e5ba6d;
-  color: #2f2619;
+#main-nav a:link, #main-nav a:visited {
+  color: white;
+}
+#main-nav a:hover, #main-nav a:focus {
+  background: #cf5c3f;
+  color: white;
 }
 
 .nav-toggle {
@@ -75,10 +132,9 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
-
 .nav-toggle:hover {
-  background: #e5ba6d;
-  color: #2f2619;
+  background: #cf5c3f;
+  color: white;
 }
 
 .nav-hide {
