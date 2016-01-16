@@ -14,5 +14,5 @@ if ( function_exists( usv_breadcrumb_shortcode ) ) {
 		</div>
 	</article>
 </main>
-	// Hier Suche einbauen
+<?php get_search_form(); ?>
 <?php get_footer(); ?>
