@@ -1,2 +1,2 @@
-# usv-theme
+# usv
 USV Wordpress Theme 
