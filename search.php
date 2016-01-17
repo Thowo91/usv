@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php
-if ( function_exists( usv_breadcrumb_shortcode ) ) {
+if ( function_exists( 'usv_breadcrumb_shortcode' ) ) {
 	echo do_shortcode( '[breadcrumb]' );
 }
 ?>
@@ -12,7 +12,7 @@ if ( function_exists( usv_breadcrumb_shortcode ) ) {
 
 	<?php endwhile; ?>
 	<?php
-	if ( function_exists( usv_pagination_shortcode ) ) {
+	if ( function_exists( 'usv_pagination_shortcode' ) ) {
 		echo do_shortcode( '[pagination]' );
 	}
 	?>

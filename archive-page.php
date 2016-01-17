@@ -21,7 +21,7 @@ get_header(); ?>
 
 		<?php endwhile; ?>
 		<?php
-		if ( function_exists( usv_pagination_shortcode ) ) {
+		if ( function_exists( 'usv_pagination_shortcode' ) ) {
 			echo do_shortcode( '[pagination]' );
 		}
 		?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php
-if ( function_exists( usv_breadcrumb_shortcode ) ) {
+if ( function_exists( 'usv_breadcrumb_shortcode' ) ) {
 	echo do_shortcode( '[breadcrumb]' );
 }
 ?>
