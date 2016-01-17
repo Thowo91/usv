@@ -29,7 +29,7 @@ function usv_wp_title( $title ) {
 	}
 
 	$filtered_title = $title . get_bloginfo( 'name' );
-	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) ) : '';
+	$filtered_title .= ( 2 <= $paged || 2 <= $page ) ? ' | ' . sprintf( __( 'Page %s', 'usv' ), max( $paged, $page ) ) : '';
 
 	return $filtered_title;
 }
