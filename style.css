@@ -38,17 +38,14 @@ a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
 }
-
 a img.alignnone {
   margin: 5px 20px 20px 0;
 }
-
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
 }
-
-a img.aligncenter {
+a img.alligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -62,33 +59,21 @@ a img.aligncenter {
   padding: 5px 3px 10px;
   text-align: center;
 }
-
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignleft {
   margin: 5px 20px 20px 0;
 }
-
 .wp-caption.alignright {
   margin: 5px 0 20px 20px;
 }
-
-.wp-caption img {
-  border: 0 none;
-  height: auto;
-  margin: 0;
-  max-width: 98.5%;
-  padding: 0;
-  width: auto;
-}
-
-.wp-caption p.wp-caption-text {
+.wp-caption .wp-caption-text {
   font-size: 11px;
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
+  color: #999;
 }
 
 /* Text meant only for screen readers. */
@@ -99,7 +84,6 @@ a img.aligncenter {
   width: 1px;
   overflow: hidden;
 }
-
 .screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
@@ -201,6 +185,14 @@ article:last-child {
   list-style: none;
 }
 
+.pagination li {
+  float: left;
+  list-style: none;
+  padding: 5px;
+}
+
+/* =Navigation
+-------------------------------------------------------------- */
 #main-nav {
   width: 100%;
   float: left;
@@ -260,4 +252,49 @@ article:last-child {
 
 #navi-hide:target .nav-hide {
   display: none;
+}
+
+/* =Table
+-------------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 1em;
+  border: none;
+}
+
+tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+tr:nth-child(even) {
+  background: #fff;
+}
+
+td {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  padding: 8px;
+  background-color: #ececec;
+  vertical-align: middle;
+}
+
+.table-scrollable {
+  width: 100%;
+  overflow-y: auto;
+  margin: 0 0 1em;
+}
+.table-scrollable::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+.table-scrollable::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, 0.3);
 }
