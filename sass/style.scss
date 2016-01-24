@@ -14,11 +14,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_variables.scss";
 
+@import "_mixins.scss";
+
 @import "_wpcore.scss";
 
 #page {
   max-width: 1102px;
   margin: 0 auto;
+}
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 body {
@@ -65,6 +79,10 @@ a {
   width: 100%;
   float: left;
   overflow: hidden;
+  @include box-shadow;
+  @media screen and (min-width: $breakpoint) {
+    @include rounded(8px);
+  }
 }
 
 article {
@@ -78,6 +96,10 @@ article {
   background-color: white;
   width: 100%;
   float: right;
+  @include box-shadow;
+  @media screen and (min-width: $breakpoint) {
+    @include rounded(8px);
+  }
 }
 
 #colophon {
@@ -85,6 +107,10 @@ article {
   width: 100%;
   float: left;
   color: white;
+  @include box-shadow;
+  @media screen and (min-width: $breakpoint) {
+    @include rounded(8px);
+  }
   a {
     &:link,
     &:visited {

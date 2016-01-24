@@ -1,18 +1,15 @@
 /* =Navigation
 -------------------------------------------------------------- */
+#navi-open:target nav {
+  display: block;
+}
+
 #main-nav {
   width: 100%;
   float: left;
   display: none;
   position: relative;
   z-index: 999;
-}
-
-#navi-open:target nav {
-  display: block;
-}
-
-#main-nav {
   li {
     float: left;
     width: 100%;
@@ -63,4 +60,78 @@
 
 #navi-hide:target .nav-hide {
   display: none;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .nav-toggle {
+    display: none;
+  }
+  #main-nav {
+    display: block;
+    height: 40px;
+    margin-bottom: 30px;
+    @include rounded(8px);
+    ul {
+      padding-left: 20px;
+      display: block;
+    }
+    li {
+      width: inherit;
+      float: left;
+    }
+    a {
+      &:link,
+      &:visited {
+        display: inline-block;
+        padding: 5px 15px;
+      }
+    }
+    ul {
+      li {
+        float: left;
+        list-style: none;
+        position: relative;
+        &:hover > ul {
+          display: block;
+        }
+        a {
+          margin: 0;
+          padding: 9px 14px;
+          display: block;
+          border-bottom: none;
+        }
+        &:first-child {
+          margin: 0;
+        }
+      }
+      ul {
+        display: none;
+        float: left;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        z-index: 99999;
+        padding: 0;
+        li {
+          .current_page_item {
+            background: $primary;
+          }
+        }
+        a {
+          background: $navigation;
+          padding: 9px 14px;
+          width: 11em;
+          height: auto;
+          text: {
+            transform: none;
+            align: left;
+          }
+        }
+        :hover > a,
+        a:hover {
+          background: $primary;
+        }
+      }
+    }
+  }
 }
