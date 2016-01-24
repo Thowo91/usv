@@ -1,5 +1,9 @@
 <?php
 
+define('THEMEDIR', get_stylesheet_directory_uri());
+define('IMG', THEMEDIR . '/img');
+define('JS', THEMEDIR . '/js');
+
 add_action( 'after_setup_theme', 'usv' );
 
 function usv_scripts() {
