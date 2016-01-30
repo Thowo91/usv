@@ -4,35 +4,43 @@
   display: block;
 }
 
-#main-nav {
-  width: 100%;
-  float: left;
-  display: none;
-  position: relative;
-  z-index: 999;
-  li {
+#branding {
+
+  nav {
+    background-color: $navigation;
+    width: 100%;
     float: left;
-    width: 100%;
-    padding-bottom:2px;
-    list-style: none;
+    display: none;
+    position: relative;
+    z-index: 999;
+    line-height: 30px;
     ul {
-      display: none;
+      list-style: none;
+      margin: 0 auto;
+      padding-left: 0;
     }
-  }
-  a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    padding:1em;
-    &:link,
-    &:visited {
-      color: white;
+    li {
+      float: left;
+      width: 100%;
+      padding-bottom: 2px;
+      list-style: none;
+      ul {
+        display: none;
+      }
     }
-    &:hover,
-    &:focus {
-      background: $primary;
-      color: white;
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 1em;
+      &:link,
+      &:visited {
+        color: white;
+      }
+      &:hover,
+      &:focus {
+        background-color: $primary;
+        color: white;
+      }
     }
   }
 }
@@ -66,70 +74,74 @@
   .nav-toggle {
     display: none;
   }
-  #main-nav {
-    display: block;
-    height: 40px;
-    margin-bottom: 30px;
-    @include rounded(8px);
-    ul {
-      padding-left: 20px;
+  #branding {
+
+    nav {
       display: block;
-    }
-    li {
-      width: inherit;
-      float: left;
-    }
-    a {
-      &:link,
-      &:visited {
-        display: inline-block;
-        padding: 5px 15px;
+      height: 40px;
+      margin-bottom: 30px;
+      @include rounded(8px);
+      ul {
+        background-color: $navigation;
+        padding-left: 20px;
+        display: block;
       }
-    }
-    ul {
       li {
+        width: inherit;
         float: left;
-        list-style: none;
-        position: relative;
-        &:hover > ul {
-          display: block;
-        }
-        a {
-          margin: 0;
-          padding: 9px 14px;
-          display: block;
-          border-bottom: none;
-        }
-        &:first-child {
-          margin: 0;
+      }
+      a {
+        &:link,
+        &:visited {
+          display: inline-block;
+          padding: 5px 15px;
         }
       }
       ul {
-        display: none;
-        float: left;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        z-index: 99999;
-        padding: 0;
         li {
-          .current_page_item {
-            background: $primary;
+          float: left;
+          list-style: none;
+          position: relative;
+          &:hover > ul {
+            display: block;
+          }
+          a {
+            margin: 0;
+            padding: 9px 14px;
+            display: block;
+            border-bottom: none;
+          }
+          &:first-child {
+            margin: 0;
           }
         }
-        a {
-          background: $navigation;
-          padding: 9px 14px;
-          width: 11em;
-          height: auto;
-          text: {
-            transform: none;
-            align: left;
+        ul {
+          display: none;
+          float: left;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          z-index: 99999;
+          padding: 0;
+          li {
+            .current_page_item {
+              background-color: $primary;
+            }
           }
-        }
-        :hover > a,
-        a:hover {
-          background: $primary;
+          a {
+            background-color: $navigation;
+            padding: 9px 14px;
+            width: 11em;
+            height: auto;
+            text: {
+              transform: none;
+              align: left;
+            }
+          }
+          :hover > a,
+          a:hover {
+            background-color: $primary;
+          }
         }
       }
     }

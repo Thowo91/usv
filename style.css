@@ -18,8 +18,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   margin: 5px 20px 20px 0;
 }
 
-.aligncenter,
-div.aligncenter {
+.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
 }
@@ -34,39 +33,12 @@ div.aligncenter {
   margin: 5px 20px 20px 0;
 }
 
-a img.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-a img.alignnone {
-  margin: 5px 20px 20px 0;
-}
-a img.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-a img.alligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .wp-caption {
-  background: #fff;
-  border: 1px solid #f0f0f0;
+  background-color: #fff;
   max-width: 96%;
   /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
+  padding: 0 15px 0 0;
   text-align: center;
-}
-.wp-caption.alignnone {
-  margin: 5px 20px 20px 0;
-}
-.wp-caption.alignleft {
-  margin: 5px 20px 20px 0;
-}
-.wp-caption.alignright {
-  margin: 5px 0 20px 20px;
 }
 .wp-caption .wp-caption-text {
   font-size: 11px;
@@ -74,6 +46,11 @@ a img.alligncenter {
   margin: 0;
   padding: 0 4px 5px;
   color: #999;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 /* Text meant only for screen readers. */
@@ -110,28 +87,19 @@ a img.alligncenter {
   margin: 0 auto;
 }
 
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before, .clearfix:after {
+.clearfix::before, .clearfix::after {
   content: " ";
   display: table;
 }
-.clearfix:after {
+.clearfix::after {
   clear: both;
 }
 
 body {
   background-color: #ececec;
+  font-size: 90%;
   font-family: 'Droid Sans',sans-serif;
-}
-
-img,
-.wp-caption {
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  padding: 0 15px 0 0;
+  line-height: 1.429;
 }
 
 a {
@@ -158,19 +126,16 @@ a:hover, a:active, a:focus {
   width: 100%;
   float: left;
   overflow: hidden;
-  -webkit-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
-  -moz-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
   box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
 }
 @media screen and (min-width: 798px) {
   #content {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
     border-radius: 8px;
   }
 }
 
 article {
+  margin: 2% 5%;
   border-bottom: 1px solid #777;
 }
 article:last-child {
@@ -181,14 +146,10 @@ article:last-child {
   background-color: white;
   width: 100%;
   float: right;
-  -webkit-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
-  -moz-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
   box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
 }
 @media screen and (min-width: 798px) {
   #sidebar {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
     border-radius: 8px;
   }
 }
@@ -198,15 +159,12 @@ article:last-child {
   width: 100%;
   float: left;
   color: white;
-  -webkit-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
-  -moz-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
   box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
 }
 @media screen and (min-width: 798px) {
   #colophon {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
     border-radius: 8px;
+    margin-bottom: 2%;
   }
 }
 #colophon a:link, #colophon a:visited {
@@ -215,7 +173,10 @@ article:last-child {
   display: block;
 }
 #colophon a:hover, #colophon a:focus {
-  background: #cf5c3f;
+  background-color: #cf5c3f;
+}
+#colophon .current-menu-item {
+  background-color: #cf5c3f;
 }
 #colophon ul {
   padding-left: 20px;
@@ -238,34 +199,39 @@ article:last-child {
   display: block;
 }
 
-#main-nav {
+#branding nav {
+  background-color: #666;
   width: 100%;
   float: left;
   display: none;
   position: relative;
   z-index: 999;
+  line-height: 30px;
 }
-#main-nav li {
+#branding nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding-left: 0;
+}
+#branding nav li {
   float: left;
   width: 100%;
   padding-bottom: 2px;
   list-style: none;
 }
-#main-nav li ul {
+#branding nav li ul {
   display: none;
 }
-#main-nav a {
+#branding nav a {
   display: block;
-  height: 100%;
-  width: 100%;
   text-decoration: none;
   padding: 1em;
 }
-#main-nav a:link, #main-nav a:visited {
+#branding nav a:link, #branding nav a:visited {
   color: white;
 }
-#main-nav a:hover, #main-nav a:focus {
-  background: #cf5c3f;
+#branding nav a:hover, #branding nav a:focus {
+  background-color: #cf5c3f;
   color: white;
 }
 
@@ -299,44 +265,43 @@ article:last-child {
     display: none;
   }
 
-  #main-nav {
+  #branding nav {
     display: block;
     height: 40px;
     margin-bottom: 30px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
     border-radius: 8px;
   }
-  #main-nav ul {
+  #branding nav ul {
+    background-color: #666;
     padding-left: 20px;
     display: block;
   }
-  #main-nav li {
+  #branding nav li {
     width: inherit;
     float: left;
   }
-  #main-nav a:link, #main-nav a:visited {
+  #branding nav a:link, #branding nav a:visited {
     display: inline-block;
     padding: 5px 15px;
   }
-  #main-nav ul li {
+  #branding nav ul li {
     float: left;
     list-style: none;
     position: relative;
   }
-  #main-nav ul li:hover > ul {
+  #branding nav ul li:hover > ul {
     display: block;
   }
-  #main-nav ul li a {
+  #branding nav ul li a {
     margin: 0;
     padding: 9px 14px;
     display: block;
     border-bottom: none;
   }
-  #main-nav ul li:first-child {
+  #branding nav ul li:first-child {
     margin: 0;
   }
-  #main-nav ul ul {
+  #branding nav ul ul {
     display: none;
     float: left;
     position: absolute;
@@ -345,20 +310,20 @@ article:last-child {
     z-index: 99999;
     padding: 0;
   }
-  #main-nav ul ul li .current_page_item {
-    background: #cf5c3f;
+  #branding nav ul ul li .current_page_item {
+    background-color: #cf5c3f;
   }
-  #main-nav ul ul a {
-    background: #666;
+  #branding nav ul ul a {
+    background-color: #666;
     padding: 9px 14px;
     width: 11em;
     height: auto;
     text-transform: none;
     text-align: left;
   }
-  #main-nav ul ul :hover > a,
-  #main-nav ul ul a:hover {
-    background: #cf5c3f;
+  #branding nav ul ul :hover > a,
+  #branding nav ul ul a:hover {
+    background-color: #cf5c3f;
   }
 }
 /* =Table
@@ -372,11 +337,11 @@ table {
 }
 
 tr:nth-child(odd) {
-  background: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 tr:nth-child(even) {
-  background: #fff;
+  background-color: #fff;
 }
 
 td {
@@ -397,6 +362,7 @@ th {
 }
 .table-scrollable::-webkit-scrollbar {
   -webkit-appearance: none;
+  -moz-appearance: none;
   width: 14px;
   height: 14px;
 }
@@ -404,4 +370,17 @@ th {
   border-radius: 8px;
   border: 3px solid #fff;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 798px) {
+  #content {
+    width: 73%;
+    bargin-bottom: 2%;
+  }
+
+  #sidebar {
+    width: 25%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+  }
 }

@@ -22,10 +22,10 @@
 <div id="page">
 	<header id="branding">
 		<h1><?php bloginfo( 'name' ); ?></h1>
-		<nav id="main-nav">
+		<nav>
 			<?php wp_nav_menu( array( 'theme_location' => 'header-nav' ) ); ?>
 		</nav>
 		<a class="nav-toggle nav-show" href="#navi-open">MENU</a>
-		<a class="nav-toggle nav-hide" href="#navi-schliessen">MENU</a>
+		<a class="nav-toggle nav-hide" href="#navi-close">MENU</a>
 	</header>
 	<div id="wrap">

@@ -1,11 +1,7 @@
 @mixin rounded($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
   border-radius: $radius;
 }
 
 @mixin box-shadow {
-  -webkit-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
-  -moz-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
   box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
 }

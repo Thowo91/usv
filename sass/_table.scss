@@ -9,11 +9,11 @@ table{
 }
 
 tr:nth-child(odd) {
-  background:#f9f9f9;
+  background-color:#f9f9f9;
 }
 
 tr:nth-child(even) {
-  background: #fff;
+  background-color: #fff;
 }
 
 td {
@@ -33,6 +33,7 @@ th {
   margin: 0 0 1em;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
+    -moz-appearance: none;
     width: 14px;
     height: 14px;
     &-thumb {
