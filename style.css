@@ -82,6 +82,20 @@ img {
   /* Above WP toolbar. */
 }
 
+.breadcrumb {
+  float: left;
+  width: 100%;
+}
+.breadcrumb ol {
+  list-style: none;
+}
+.breadcrumb li {
+  float: left;
+}
+.breadcrumb li + li::before {
+  content: "\00a0\00BB\00a0";
+}
+
 #page {
   max-width: 1102px;
   margin: 0 auto;

@@ -18,6 +18,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_wpcore.scss";
 
+.breadcrumb {
+  float: left;
+  width: 100%;
+  ol {
+    list-style: none;
+  }
+  li {
+    float: left;
+  }
+  li +li::before {
+    content: "\00a0\00BB\00a0";
+  }
+}
+
 #page {
   max-width: 1102px;
   margin: 0 auto;
