@@ -155,6 +155,8 @@ article {
 
 @import "_table.scss";
 
+@import "_grid.scss";
+
 @media screen and (min-width: $breakpoint) {
   #content {
     width: 73%;
