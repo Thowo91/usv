@@ -1,171 +1,616 @@
 /*
 Theme Name: USV
-Theme URI: https://github.com/Thowo91/usv
+Theme URI:
 Description: Template für die neue Seite des Unterfränkischen Schachverbandes. Erstellt im Rahmen meiner Bachelorarbeit.
 
 Author: Thomas Worofsky
-Author URI: https://github.com/Thowo91
-Version: 0.1
+Author URI:
+Version: 1.0
 Tags: orange, white, one-column, two-columns, right-sidebar, fluid-layout, custom-menu, microformats, post-formats, sticky-post
 
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU/GPL Version 2 or later
+License URI: http://www.gnu.org/licenses/gpl.html
 */
-
+@import "_mixins.scss";
 @import "_variables.scss";
 
-@import "_mixins.scss";
-
-@import "_wpcore.scss";
-
-.breadcrumb {
-  float: left;
-  width: 100%;
-  ol {
-    list-style: none;
-  }
-  li {
-    float: left;
-  }
-  li +li::before {
-    content: "\00a0\00BB\00a0";
-  }
+/* Bodystyle
+--------------------------------------------- */
+html {
+	scroll-behavior: smooth;
 }
 
 #page {
-  max-width: 1102px;
-  margin: 0 auto;
+	max-width: 1102px;
+	margin: 0 auto;
 }
 
 .clearfix {
-  &::before,
-  &::after {
-    content: " ";
-    display: table;
-  }
-  &::after {
-    clear: both;
-  }
+	&:before {
+		display: table;
+		content: " ";
+	}
+	&:after {
+	@extend .clearfix:before;
+	clear: both;
+	}
+}
+
+.visible-xs,
+.visible-sm {
+	display: none !important;
+}
+
+@media screen and (max-width: $breakpoint) {
+	.visible-xs {
+		display: block !important;
+	}
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+	margin-right:-15px;
+	margin-left:-15px;
+}
+
+.col-sm-4,
+.col-xs-6,
+.col-full {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	float: left;
+}
+
+.col-full {
+	width: 100%;
+}
+
+.col-xs-6 {
+	width: 50%;
 }
 
 body {
-  background-color: $background;
-  font: {
-    size: 90%;
-    family: 'Droid Sans',sans-serif;
-  }
-  line-height: 1.429;
+	background-color: $background;
+	font: {
+		size: 90%;
+		family: 'Droid Sans', arial, sans-serif;
+	}
+	line-height: 1.429;
+	text-align: left;
+	clear: both;
+	word-wrap: break-word;
+	@include hyphen;
 }
 
+img,
+.wp-caption{
+	height: auto;
+	max-width: 100%;
+	text-align: center;
+	padding: 0 15px 0 0;
+}
+
+.aligncenter,
+div.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+span.wpcf7-list-item { display: block; }
+
+/* Headings
+--------------------------------------------- */
+/* 22px */
+h2 {
+	@extend %headings;
+	@include font-size(22px);
+	//font-size: 1.571em;
+}
+
+/* 20px */
+h3 {
+	@extend %headings;
+	@include font-size(20px);
+	//font-size: 1.429em;
+}
+
+/* 18px */
+h4 {
+	@extend %headings;
+	@include font-size(18px);
+	//font-size: 1.286em;
+}
+
+/* 16px */
+h5 {
+	@extend %headings;
+	@include font-size(16px);
+	//font-size: 1.143em;
+}
+
+/* 14px */
+h6 {
+	@extend %headings;
+	@include font-size(14px);
+	//font-size: 1em;
+}
+
+%headings {
+	font-weight: 400;
+	line-height: 1.1;
+	margin-bottom: .8em;
+}
+
+/* Anchorstyle
+--------------------------------------------- */
 a {
-  outline: 0;
-  font-style: normal;
-  text-decoration: none;
-  img {
-    border: none;
-  }
-  &:link,
-  &:visited {
-    color: $primary;
-  }
-  &:hover,
-  &:active,
-  &:focus {
-    color: $secondary;
-  }
+	outline: 0;
+	font-style: normal;
+	text-decoration: none;
+	img {
+		border: none;
+	}
+	&:link,
+	&:visited {
+		color: $primary;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $secondary;
+	}
+}
+
+/* Main Navigation
+--------------------------------------------- */
+#logo {
+	width: 85px;
+	height: 100px;
+	float: left;
 }
 
 #branding {
-  nav {
-    background-color: $navigation;
-  }
+	.menu_button {
+		text-align: center;
+		display: block;
+		margin: 0 auto 5px;
+		background: $primary;
+		color: $white;
+		padding: 2% 5%;
+		@include rounded(8px);
+	}
+	img {
+		height: auto;
+		padding: 0 15px 0 0;
+	}
+	nav {
+		background: $navigation;
+		@include font-size(16px);
+		//font-size: 1.143em;
+		line-height: 30px;
+		margin: 0 auto;
+		text-align: center;
+		ul {
+			list-style: none;
+			margin: 0 auto;
+			padding-left: 0;
+			display: none;
+			&.expanded {
+				display: block;
+			}
+			li {
+				display: block;
+			}
+		}
+		li {
+			width: 100%;
+		}
+		a {
+			&:link,
+			&:visited {
+				color: $white;
+				display: block;
+				height: 30px;
+				text-decoration: none;
+				padding: 5px 0;
+				//@include transition(all,0.3s, ease-in-out);
+			}
+		}
+		a:hover,
+		a:focus,
+		.current-menu-parent,
+		.current-menu-item,
+		.current-post-ancestor {
+			background: $primary;
+			color: $white;
+			text-shadow: none !important;
+		}
+	}
 }
 
-#content {
-  background-color: white;
-  width: 100%;
-  float: left;
-  overflow: hidden;
-  @include box-shadow;
-  @media screen and (min-width: $breakpoint) {
-    @include rounded(8px);
-  }
+/* Content Area
+--------------------------------------------- */
+#wrap {
+	overflow: hidden;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#content,
+#content.full-width {
+	width: 100%;
+	float: left;
+	margin-bottom: 2%;
+	background-color: $white;
+	@include box-shadow;
+	@include rounded(8px);
 }
 
 article {
-  margin: 2% 5%;
-  border-bottom: 1px solid $secondary;
-  &:last-child {
-    border-bottom: none;
-  }
+	margin: 2% 5%;
+	border-bottom: 1px solid $secondary;
+	text-align: justify;
+	&:last-child {
+		border-bottom: none;
+	}
 }
 
+.post-info {
+	font: {
+		family: 'Droid Serif', Times, serif;
+		style: italic;
+		size: 85%;
+	}
+	a {
+		font: {
+			family: 'Droid Sans', arial, sans-serif;
+			style: normal;
+		}
+	}
+}
+
+p.wp-caption-text {
+	font: {
+		style: normal;
+		family: 'Droid Sans', arial, sans-serif;
+	}
+	@include font-size(12px);
+	 //.8em/1.4 'Droid Sans', arial, sans-serif;
+	margin: 0;
+	padding: 7px 0 10px 0;
+	color: $lightgray;
+}
+
+/* Table
+--------------------------------------------- */
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+	width:100%;
+	margin-bottom:1em;
+	border:none
+}
+
+tr:nth-child(odd) {
+	background:#f9f9f9;
+}
+
+tr:nth-child(even) {
+	background: $white;
+}
+
+td {
+	border-top: 1px solid #ddd;
+	padding:8px;
+}
+
+th {
+	padding:8px;
+	background-color:$background;
+	vertical-align:middle;
+}
+
+.table-scrollable {
+	width: 100%;
+	overflow-y: auto;
+	margin: 0 0 1em;
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 14px;
+		height: 14px;
+		&-thumb {
+			border-radius: 8px;
+			border: 3px solid #fff;
+			background-color: rgba(0, 0, 0, .3);
+		}
+	}
+}
+
+/* Sidebar
+--------------------------------------------- */
 #sidebar {
-  background-color: white;
-  width: 100%;
-  float: right;
-  @include box-shadow;
-  @media screen and (min-width: $breakpoint) {
-    @include rounded(8px);
-  }
+	width: 100%;
+	float: right;
+	background-color: $white;
+	@include box-shadow;
+	@include rounded(8px);
+}
+.sidebar-widget {
+	overflow: hidden;
+	margin: 2% 5%;
+	padding: 2% 5%;
+	border-bottom: 1px solid $secondary;
+	ul {
+		padding: 0;
+		li {
+			float: left;
+			margin: 0 20px 0 0;
+			list-style: none;
+		}
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+}
+.screen-reader-text {
+	display: none;
 }
 
+/* Pagenavi
+--------------------------------------------- */
+.wp-pagenavi {
+	padding: 10px 20px 10px;
+	display:block;
+	clear:both;
+	@include font-size(14px);
+	//font-size: 14px;
+	margin: 2% 5%;
+	%p_m {
+		padding: 6px 8px !important;
+		margin: 2px !important;
+	}
+	a {
+		&,
+		&:link {
+			@extend %p_m;
+			border:1px solid $navigation !important;
+			repeat-x: !important;
+			font-weight: normal !important;
+		}
+	}
+	span {
+		&.pages{
+			@extend %p_m;
+			border: none !important;
+			background: none !important;
+		}
+		&.current,
+		&.extend {
+			@extend %p_m;
+			font-weight: bold;
+			border:1px solid $navigation !important;
+			@include rounded(8px);
+		}
+	}
+	a {
+		&:active,
+		&:hover {
+			@extend %p_m;
+			font-weight: bold;
+			border:1px solid $navigation !important;
+		}
+		&,
+		&:active,
+		&:link {
+			@include rounded(8px);
+		}
+	}
+}
+
+/* Footer
+--------------------------------------------- */
 #colophon {
-  background-color: $navigation;
-  width: 100%;
-  float: left;
-  color: white;
-  @include box-shadow;
-  @media screen and (min-width: $breakpoint) {
-    @include rounded(8px);
-    margin-bottom: 2%;
-  }
-  a {
-    &:link,
-    &:visited {
-      color: white;
-      padding: 5px 16px;
-      display: block;
-    }
-    &:hover,
-    &:focus {
-      background-color: $primary;
-    }
-  }
-  .current-menu-item {
-    background-color: $primary;
-  }
-  ul {
-    padding-left: 20px;
-    display: block;
-  }
-  li {
-    float: left;
-    list-style: none;
-  }
+	width: 100%;
+	float: left;
+	margin-bottom: 2%;
+	background-color: $navigation;
+	color: $white;
+	@include box-shadow;
+	@include rounded(8px);
+	a {
+		&:link,
+		&:visited {
+			color: $white;
+			padding: 5px 16px;
+			display: block;
+			//@include transition(all, 0.3s, ease-in-out);
+			@include rounded(14px);
+		}
+		&:hover,
+		&:focus {
+			background: $primary;
+			@include rounded(14px);
+		}
+		&.top {
+			float: right;
+		}
+	}
+	.current-menu-item {
+		background: $primary;
+		@include rounded(14px);
+	}
+	p {
+		clear:left;
+		padding-left: 20px;
+		margin: 2% auto;
+		@include font-size(14px);
+		//font-size: 0.8125rem;
+	}
+	ul {
+		padding-left: 20px;
+		display: block;
+	}
+	li {
+		float: left;
+		list-style: none;
+	}
 }
 
-.pagination li{
-  float: left;
-  list-style: none;
-  padding: 5px;
-}
-
-@import "_navigation.scss";
-
-@import "_table.scss";
-
-@import "_grid.scss";
-
+/* Media Querrys
+--------------------------------------------- */
 @media screen and (min-width: $breakpoint) {
-  #content {
-    width: 73%;
-    bargin-bottom: 2%;
+	.visible-sm {
+    display: block !important;
   }
+	.col-sm-4 {
+		width: 33.33333333%;
+	}
+	body {
+		font-size: 87.5%;
+	}
+	a {
+		&:link,
+		&:visited {
+			padding: 0 1px;
+		}
+	}
 
-  #sidebar {
-    width: 25%;
-    margin-left: 2%;
-    margin-bottom: 2%;
-  }
+/* Main Navigation & Dropdown
+--------------------------------------------- */
+	#branding {
+		.menu_button {
+			display: none;
+		}
+		nav {
+			height: 40px;
+			margin-bottom: 30px;
+			@include rounded(8px);
+			ul {
+				padding-left: 20px;
+				display: block;
+			}
+			li {
+				width: inherit;
+				float: left;
+			}
+			a {
+				&:link,
+				&:visited {
+					display: inline-block;
+					padding: 5px 15px;
+				}
+			}
+		}
+		ul {
+			li {
+				float: left;
+				list-style: none;
+				position: relative;
+				&:hover > ul {
+					display: block;
+				}
+				a {
+					margin: 0;
+					padding: 9px 14px;
+					display: block;
+					border-bottom: none;
+				}
+				&:first-child {
+					margin: 0px;
+				}
+			}
+			ul {
+				display: none;
+				float: left;
+				position: absolute;
+				top: 40px;
+				left: 0;
+				z-index: 99999;
+				padding: 0px;
+				li {
+					.current_page_item {
+						background: $primary;
+					}
+				}
+				a {
+					background: $navigation;
+					padding: 9px 14px;
+					width: 11em;
+					height: auto;
+					text: {
+						transform: none;
+						align: left;
+					}
+				}
+				:hover > a,
+				a:hover {
+					background: $primary;
+				}
+			}
+		}
+	}
+
+/* Content Area
+--------------------------------------------- */
+	#wrap {
+		margin-top: inherit;
+		margin-bottom: inherit;
+	}
+
+	#content {
+		width: 73%;
+		margin-bottom: 2%;
+	}
+
+	.article {
+		padding: 3% 5%;
+		margin-bottom: 2%;
+	}
+
+/* Sidebar
+--------------------------------------------- */
+	#sidebar {
+		width: 25%;
+		margin-left: 2%;
+		margin-bottom: 2%;
+	}
+
+	.sidebar-widget ul li {
+		float: none;
+	}
+	
 }

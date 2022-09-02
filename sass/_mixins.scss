@@ -1,7 +1,46 @@
 @mixin rounded($radius) {
-  border-radius: $radius;
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+			border-radius: $radius;
+}
+
+@mixin transition($property, $duration, $timing-function) {
+	-webkit-transition: $property $duration $timing-function;
+	   -moz-transition: $property $duration $timing-function;
+	     -o-transition: $property $duration $timing-function;
+	     	transition: $property $duration $timing-function;
 }
 
 @mixin box-shadow {
-  box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
+	-webkit-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
+	   -moz-box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
+	   		box-shadow: 0 2px 5px rgba(50, 50, 50, 0.15);
+}
+
+@mixin mult($count, $gap, $rule) {
+	@each $vendor in webkit, moz {
+		-#{$vendor}-column-count: $count;
+		-#{$vendor}-column-gap: $gap;
+		-#{$vendor}-column-rule: $rule;
+	}
+	column-count: $count;
+	column-gap: $gap;
+	column-rule: $rule;
+}
+
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+@mixin hyphen {
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }

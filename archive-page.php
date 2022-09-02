@@ -1,9 +1,15 @@
 <?php
-/*
-Template Name: Archiv Page Template
-*/
+/**
+ * Template Name: Archive Page Template
+ *
+ * Description: A custom archive page with tags, latest posts and a monthly archive
+ *
+ */
+
 get_header(); ?>
-	<main id="content">
+
+	<div id="content" class="full-width">	
+
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header>
@@ -11,19 +17,15 @@ get_header(); ?>
 				</header>
 				<h2>Artikel im Monat:</h2>
 				<ul>
-					<?php wp_get_archives( 'type=monthly' ); ?>
+					<?php wp_get_archives(array('type' => 'monthly', 'show_post_count' => 'true')); ?>  
 				</ul>
 				<h2>Artikel des Jahres:</h2>
 				<ul>
-					<?php wp_get_archives( 'type=yearly' ); ?>
+					<?php wp_get_archives(array('type' => 'yearly', 'show_post_count' => 'true')); ?>
 				</ul>
-			</article>
+			</article><!-- #post -->
 
-		<?php endwhile; ?>
-		<?php
-		if ( function_exists( 'usv_pagination_shortcode' ) ) {
-			echo do_shortcode( '[pagination]' );
-		}
-		?>
-	</main>
-<?php get_footer(); ?>
+		<?php endwhile; // end of the loop. ?>
+
+	</div><!-- end content -->
+	<?php get_footer(); ?>
